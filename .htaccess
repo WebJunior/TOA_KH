@@ -1,0 +1,30 @@
+Options -Indexes 
+DirectoryIndex  index.php
+
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^([^/]*)$ index.php?lang=$1 [QSA]
+RewriteRule ^([^/]*)/$ index.php?lang=$1 [QSA]
+
+RewriteRule ^([^/]*)/([^/]*)$ index.php?lang=$1&menu=$2 [QSA]
+RewriteRule ^([^/]*)/([^/]*)/$ index.php?lang=$1&menu=$2 [QSA]
+
+# RewriteRule ^([^/]*)/([^/]*)/([^/]*)$ index.php?lang=$1&menu=$2&item-id=$3 [QSA]
+# RewriteRule ^([^/]*)/([^/]*)/([^/]*)/$ index.php?lang=$1&menu=$2&item-id=$3 [QSA]
+
+# RewriteRule ^([^/]*)/([^/]*)/([^/]*)$ index.php?lang=$1&menu=$2&cate-id=$3 [QSA]
+# RewriteRule ^([^/]*)/([^/]*)/([^/]*)/$ index.php?lang=$1&menu=$2&cate-id=$3 [QSA]
+
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)$ index.php?lang=$1&menu=$2&cate-id=$3&pro-id=$4 [QSA]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ index.php?lang=$1&menu=$2&cate-id=$3&pro-id=$4 [QSA]
+
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ index.php?lang=$1&menu=$2&cate-id=$3&pro-id=$4&name=$5 [QSA]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ index.php?lang=$1&menu=$2&cate-id=$3&pro-id=$4&name=$5 [QSA]
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
